@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,8 +13,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  onLogin() {
+  onLogin(e: Event) {
+    e.preventDefault();
+    console.log(environment);
     localStorage.setItem('isLoggedin', 'true');
-    this.router.navigate(['/dashboard']);
+    // this.router.navigate(['/dashboard']);
   }
 }

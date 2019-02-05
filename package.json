@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --progress",
-    "build": "ng build --prod",
-    "gitbuild": "ng build --prod --base-href /start-javascript/sea-admin/master/dist/",
+    "build:production": "ng build --prod",
+    "build:staging": "ng build --staging",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
