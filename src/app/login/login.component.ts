@@ -14,11 +14,15 @@ import { MatSnackBar } from '@angular/material';
 })
 export class LoginComponent implements OnInit {
   loading = false;
+  environment = environment;
+
   loginForm = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(3)]),
     password: new FormControl('', [Validators.required, Validators.minLength(5)])
   });
+
   constructor(private router: Router, private authService: AuthService, private snackBar: MatSnackBar) {}
+
   ngOnInit() {}
 
   onLogin(e: Event) {
@@ -26,10 +30,9 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     // for local development so that we do not have to start auth sevice locally
-    // if(environment.fakeLogin){
-    //   this.router.navigate(['/dashboard']);
-    // }
-
+    if (this.environment.fakeLogin) {
+      this.router.navigate(['/dashboard']);
+    }
     // in case form is invalid
     if (this.loginForm.invalid) {
       this.snackBar.open('Validation error. Please check the field marked with red', 'close', {
@@ -42,11 +45,16 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(this.loginForm.value).subscribe(
       (data: SuccessLoginResponse) => {
         this.loading = false;
-        localStorage.setItem('isLoggedin', 'true');
+        localStorage.setItem(
+          'seaTool',
+          JSON.stringify({
+            token: data.token,
+            username: this.loginForm.value.username
+          })
+        );
         this.router.navigate([data.redirect]);
       },
       err => {
-        console.log(err);
         this.loading = false;
         this.snackBar.open('Error trying to login user', 'close', {
           duration: 5000

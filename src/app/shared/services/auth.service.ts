@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { LoginResponse, LoginFormData } from './auth.type';
@@ -18,5 +18,13 @@ export class AuthService {
       password: data.password,
       redirect: '/dashboard'
     });
+  }
+
+  public renewToken(token: String): Observable<LoginResponse> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.get<LoginResponse>(`${this.basePath}/renew`, { headers });
   }
 }

@@ -17,15 +17,7 @@
   <mat-menu #profile="matMenu">
     <button mat-menu-item>
       <mat-icon>person</mat-icon>
-      <span>{{ 'Profile' | translate }}</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>inbox</mat-icon>
-      <span>{{ 'Inbox' | translate }}</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>settings</mat-icon>
-      <span>{{ 'Settings' | translate }}</span>
+      <span>{{ name }}</span>
     </button>
   </mat-menu>
   <button mat-icon-button (click)="onLoggedout()">

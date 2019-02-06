@@ -11,3 +11,8 @@ export interface SuccessLoginResponse {
 export interface FailureLoginResponse {
   error: string;
 }
+
+export interface LocalStorage {
+  token: string;
+  username: string;
+}

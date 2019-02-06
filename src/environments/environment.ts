@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   authEndpoint: 'http://localhost:4000',
-  fakeLogin: true // for local development since CORS is enabled
+  fakeLogin: false // for local development since CORS is enabled
 };
 
 /*
