@@ -14,7 +14,7 @@ const routes: Routes = [
     loadChildren: './login/login.module#LoginModule'
   },
   {
-    path: '_health',
+    path: 'health',
     component: HealthComponent
   }
 ];

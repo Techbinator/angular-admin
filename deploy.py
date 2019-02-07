@@ -10,6 +10,6 @@ subprocess.call(['docker', 'push', repo_name])
 subprocess.call(['dmc', 'deploy', '--app', '/tm/sea-admin', '--port',
                  '80', '--image', repo_name, '--provider',
                  'kubernetes', '--cluster', 'development-gce',
-                 '--memory', '1024', '--health', '/_health',
+                 '--memory', '1024', '--health', '/health',
                  '--strip-prefix', '"true"'])
 print "Done"
