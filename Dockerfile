@@ -6,11 +6,11 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install node-sass
 
 COPY . .
 
-RUN npm run build:$stage
+RUN npm run build:${stage}
 
 # Stage 2
 FROM nginx:1.13.12-alpine
