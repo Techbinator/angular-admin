@@ -9,18 +9,18 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        DashboardRoutingModule,
-        MatGridListModule,
-        StatModule,
-        MatCardModule,
-        MatCardModule,
-        MatTableModule,
-        MatButtonModule,
-        MatIconModule,
-        FlexLayoutModule.withConfig({addFlexToParent: false})
-    ],
-    declarations: [DashboardComponent]
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    MatGridListModule,
+    StatModule,
+    MatCardModule,
+    MatCardModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    FlexLayoutModule.withConfig({ addFlexToParent: false })
+  ],
+  declarations: [DashboardComponent]
 })
 export class DashboardModule {}
