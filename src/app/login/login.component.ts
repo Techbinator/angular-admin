@@ -28,11 +28,6 @@ export class LoginComponent implements OnInit {
   onLogin(e: Event) {
     e.preventDefault();
     this.loading = true;
-    console.log(this.environment);
-    // for local development so that we do not have to start auth sevice locally
-    if (this.environment.fakeLogin) {
-      this.router.navigate(['/dashboard']);
-    }
     // in case form is invalid
     if (this.loginForm.invalid) {
       this.snackBar.open('Validation error. Please check the field marked with red', 'close', {
@@ -40,6 +35,16 @@ export class LoginComponent implements OnInit {
       });
       this.loading = false;
       return;
+    }
+    // for local development so that we do not have to start auth sevice locally
+    if (this.environment.fakeLogin) {
+      localStorage.setItem(
+        'seaTool',
+        JSON.stringify({
+          username: this.loginForm.value.username
+        })
+      );
+      this.router.navigate(['/dashboard']);
     }
 
     this.authService.loginUser(this.loginForm.value).subscribe(

@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --progress",
     "build:production": "ng build --prod --base-href=/tm/sea-admin/",
+    "build:production:local": "ng build --prod",
     "build:staging": "ng build --prod --base-href=/tm/sea-admin/ --configuration=staging",
     "test": "ng test",
     "lint": "ng lint",
