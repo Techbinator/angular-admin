@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   onLogin(e: Event) {
     e.preventDefault();
     this.loading = true;
-
+    console.log(this.environment);
     // for local development so that we do not have to start auth sevice locally
     if (this.environment.fakeLogin) {
       this.router.navigate(['/dashboard']);

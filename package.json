@@ -4,11 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --progress",
-    "build:production": "ng build --prod -d /tm/sea-admin/",
-    "build:staging": "ng build --staging",
+    "build:production": "ng build --prod --base-href=/tm/sea-admin/",
+    "build:staging": "ng build --prod --configuration=staging",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy:staging": "STAGE=staging python deploy.py",
+    "deploy:production": "STAGE=production python deploy.py"
   },
   "private": true,
   "dependencies": {
