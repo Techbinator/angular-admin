@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --progress",
-    "build:production": "ng build --prod",
+    "build:production": "ng build --prod -d /tm/sea-admin/",
     "build:staging": "ng build --staging",
     "test": "ng test",
     "lint": "ng lint",
