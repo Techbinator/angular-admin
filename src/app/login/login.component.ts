@@ -41,7 +41,8 @@ export class LoginComponent implements OnInit {
       localStorage.setItem(
         'seaTool',
         JSON.stringify({
-          username: this.loginForm.value.username
+          username: this.loginForm.value.username,
+          token: 'fakeToken'
         })
       );
       this.router.navigate(['/dashboard']);

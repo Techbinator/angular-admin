@@ -5,36 +5,34 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Current TS File",
+      "name": "ng serve",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "npm: start",
+      "url": "http://localhost:4200/#",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "ng test",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:9876/debug.html",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/*",
+        "/*": "*",
+        "/./~/*": "${webRoot}/node_modules/*"
+      }
+    },
+    {
+      "name": "ng e2e",
       "type": "node",
       "request": "launch",
-      "args": ["${relativeFile}"],
-      "runtimeArgs": [ "--no-lazy","-r", "ts-node/register"],
-      "sourceMaps": true,
-      "cwd": "${workspaceRoot}",
+      "program": "${workspaceFolder}/node_modules/protractor/bin/protractor",
       "protocol": "inspector",
-    },
-    {
-      "type": "chrome",
-      "request": "attach",
-      "name": "Attach Chrome",
-      "port": 9222,
-      "webRoot": "${workspaceFolder}",
-      "urlFilter": "https://localhost:4200/*"
-    },
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "Launch Chrome",
-      "url": "http://localhost:4200/",
-      "webRoot": "${workspaceFolder}"
-    },
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "Launch Chrome https",
-      "url": "https://localhost:4200/",
-      "webRoot": "${workspaceFolder}"
+      "args": ["${workspaceFolder}/e2e/protractor.conf.js"]
     }
   ]
 }
