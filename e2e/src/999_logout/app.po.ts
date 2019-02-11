@@ -9,11 +9,11 @@ export class AppPage {
     return await browser.executeScript(`return window.localStorage.getItem('seaTool')`);
   }
 
-  getTopProfileIconBtn() {
-    return element(by.className('profileBtn'));
+  getLogOutBtn() {
+    return element(by.className('log-out-btn'));
   }
 
-  getUsernameContainer() {
-    return element(by.className('headerUsername'));
+  async getCurrentUrl() {
+    return await browser.getCurrentUrl();
   }
 }

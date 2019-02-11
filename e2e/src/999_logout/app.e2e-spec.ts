@@ -1,22 +1,20 @@
 import { AppPage } from './app.po';
 
-describe('Dashboard tests', () => {
+describe('Log Out', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('localstorage should contain username and token after login', async () => {
+  it('localstorage should NOT contain username and token after login', async () => {
     await page.navigateTo();
-    expect(await page.getLocalStorage()).toEqual(`{"username":"testName","token":"fakeToken"}`);
+    const logOutBtn = page.getLogOutBtn();
+    await logOutBtn.click();
+    expect(await page.getLocalStorage()).toEqual(null);
   });
 
-  it('should display the username on header icon click', async () => {
-    const profileIconBtn = page.getTopProfileIconBtn();
-    const usernameContainer = page.getUsernameContainer();
-    await profileIconBtn.click();
-    const usernameFromHeader = await usernameContainer.getText();
-    expect(usernameFromHeader).toEqual('testName');
+  it('it should redirect to dashboard', async () => {
+    expect(await page.getCurrentUrl()).toContain('/login');
   });
 });
