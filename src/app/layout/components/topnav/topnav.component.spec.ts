@@ -3,6 +3,8 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { TopnavComponent } from './topnav.component';
+import { MatMenuModule, MatSidenavModule, MatTableModule } from '@angular/material';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TopnavComponent', () => {
   let component: TopnavComponent;
@@ -12,7 +14,7 @@ describe('TopnavComponent', () => {
     TestBed.configureTestingModule({
       declarations: [TopnavComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [TranslateModule.forRoot()]
+      imports: [TranslateModule.forRoot(), MatMenuModule, MatSidenavModule, MatTableModule, RouterTestingModule]
     }).compileComponents();
   }));
 
